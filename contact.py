@@ -63,42 +63,45 @@ def shwvalues():
 createdb()
 
 ##UI OF BASIC CONTACT BOOK##
-addval = input("Would you like to add a value? y/n ")
-if addval == 'y':
-    name = input("Enter the name of the contact you want added. ")
-    phnumber = input("Enter the phone number  of your contact. ")
-    bdate = input("Enter the birthdate of your contact. ")
-    addvalues(name,phnumber,bdate)
-
-    addval2 = input("Would you like to add another? y/n ")
-    while addval2 != 'n':
+i = 'y'
+while(i != 'n'):
+    addval = input("Would you like to add a value? y/n ")
+    if addval == 'y':
         name = input("Enter the name of the contact you want added. ")
         phnumber = input("Enter the phone number  of your contact. ")
         bdate = input("Enter the birthdate of your contact. ")
         addvalues(name,phnumber,bdate)
+
         addval2 = input("Would you like to add another? y/n ")
-else:
-    print("you didn't want to add a value.")
+        while addval2 != 'n':
+            name = input("Enter the name of the contact you want added. ")
+            phnumber = input("Enter the phone number  of your contact. ")
+            bdate = input("Enter the birthdate of your contact. ")
+            addvalues(name,phnumber,bdate)
+            addval2 = input("Would you like to add another? y/n ")
+    else:
+        print("\nYou didn't want to add a value.\n")
 
-#delete a value
-delval = input("Would you like to delete a value? y/n ")
-if delval == 'y':
-    name = input("Enter the name of the contact you want deleted. ")
-    delvalues(name)
-
-    delval2 = input("Would you like to del another? y/n ")
-    while delval2 != 'n':
+    #delete a value
+    delval = input("Would you like to delete a value? y/n ")
+    if delval == 'y':
         name = input("Enter the name of the contact you want deleted. ")
-        
         delvalues(name)
-        delval2 = input("Would you like to delete another? y/n ")
-else:
-    print("you didn't want to delete a value.")
 
-#Show all table values if you want to.
-shwval = input("Would you like to show all table values? y/n ")
-if shwval == 'y':
-    shwvalues()
-    i = input('Press ENTER to continue: ')
-else:
-    print("You didn't want to show all table values.")
+        delval2 = input("Would you like to del another? y/n ")
+        while delval2 != 'n':
+            name = input("Enter the name of the contact you want deleted. ")
+            
+            delvalues(name)
+            delval2 = input("Would you like to delete another? y/n ")
+    else:
+        print("\nYou didn't want to delete a value.\n")
+
+    #Show all table values if you want to.
+    shwval = input("Would you like to show all table values? y/n ")
+    if shwval == 'y':
+        shwvalues()
+    else:
+        print("\nYou didn't want to show all table values.\n")
+    i = input("Would you like to repeat your options or do anything else? y/n ")    
+    
